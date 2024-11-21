@@ -2,77 +2,25 @@
 
 import { useState, useRef, useEffect } from 'react';
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselRef = useRef<HTMLDivElement | null>(null);
-  const items: string[] = ['Indonesia.png', 'Malaysia.png', 'Philippines.png', 'Vietnam.png', 'Singapore.png', 'Thailand.png'];
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const checkIfMobile = () => {
-        setIsMobile(window.innerWidth <= 768); // Your mobile breakpoint
-      };
-
-      checkIfMobile(); // Initial check on mount
-      window.addEventListener('resize', checkIfMobile); // Update on resize
-
-      // Cleanup on unmount
-      return () => window.removeEventListener('resize', checkIfMobile);
-    }
-  }, []); // Empty dependency array ensures this only runs once on mount
-  
-  const updateCarousel = (index: number) => {
-    if (carouselRef.current) {
-      const itemWidth = isMobile ? carouselRef.current.offsetWidth : carouselRef.current.offsetWidth / 3;
-      carouselRef.current.style.transform = `translateX(-${index * itemWidth}px)`;
-    }
-  };
+  const countries: string[] = [
+    "Indonesia.png",
+    "Malaysia.png",
+    "Philippines.png",
+    "Vietnam.png",
+    "Singapore.png",
+    "Thailand.png",
+  ];
 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000); 
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      updateCarousel(currentIndex);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [currentIndex]);
-
-  const getNextIndex = (increment: boolean) => {
-    let nextIndex = increment ? currentIndex + 1 : currentIndex - 1;
-
-    if (nextIndex === items.length) {
-      nextIndex = isMobile ? 0 : 3;
-    }
-    if (nextIndex === -1) {
-      nextIndex = isMobile ? items.length - 1 : 3;
-    }
-    
-    return nextIndex;
-  };
-
-  const nextSlide = () => {
-    const nextIndex = getNextIndex(true);
-    setCurrentIndex(nextIndex);
-    updateCarousel(nextIndex);
-  };
-
-  const prevSlide = () => {
-    const prevIndex = getNextIndex(false);
-    setCurrentIndex(prevIndex);
-    updateCarousel(prevIndex);
-  };
   return (
     <section id="home" className="relative bg-gradient-to-b from-amber-800 to-red-900 text-amber-50 shadow-xl">
       <div className="bg-gradient-to-b from-[#101212] to-[#08201D] relative">
@@ -140,51 +88,35 @@ const Hero = () => {
           
         </section>
 
+        {/* Countries Carousel */}
         <section className="relative py-5 bg-black">
-          {/* Countries list */}
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-white sm:text-3xl text-center mb-6">
               Calling All ASEAN Students in Spain
             </h2>
 
-            {/* Carousel Wrapper */}
-            <div className="relative">
-              <div
-                ref={carouselRef}
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * (window.innerWidth <= 768 ? 100 : 33.33)}%)` }}
-              >
-                {items.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
-                  >
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={window.innerWidth <= 768 ? 1 : 3}
+
+              autoplay={{ delay: 3000 }}
+              loop={true}
+              className="w-full"
+            >
+              {countries.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <div className="w-full flex justify-center">
                     <img
                       src={item}
                       alt={`Country ${index + 1}`}
-                      className="w-full drop-shadow-[0_0_30px_rgba(250,211,132,0.6)]"
-                      loading="eager"
+                      className="drop-shadow-[0_0_30px_rgba(250,211,132,0.6)]"
+                      loading="lazy"
                     />
                   </div>
-                ))}
-              </div>
-
-              {/* Controls */}
-              <button
-                className="absolute top-1/2 left-0 transform -translate-y-1/2 px-4 py-2 bg-white/20 rounded-full hover:bg-white/30 text-white"
-                onClick={prevSlide}
-                aria-label="Previous slide"
-              >
-                &larr;
-              </button>
-              <button
-                className="absolute top-1/2 right-0 transform -translate-y-1/2 px-4 py-2 bg-white/20 rounded-full hover:bg-white/30 text-white"
-                onClick={nextSlide}
-                aria-label="Next slide"
-              >
-                &rarr;
-              </button>
-            </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </section>
 
