@@ -16,9 +16,13 @@ const Hero = () => {
       };
 
       checkIfMobile(); // Initial check on mount
+      window.addEventListener('resize', checkIfMobile); // Update on resize
+
+      // Cleanup on unmount
+      return () => window.removeEventListener('resize', checkIfMobile);
     }
   }, []); // Empty dependency array ensures this only runs once on mount
-
+  
   const updateCarousel = (index: number) => {
     if (carouselRef.current) {
       const itemWidth = isMobile ? carouselRef.current.offsetWidth : carouselRef.current.offsetWidth / 3;
