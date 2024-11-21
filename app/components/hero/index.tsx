@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,6 +17,19 @@ const Hero = () => {
     "Singapore.png",
     "Thailand.png",
   ];
+  const [slidesPerView, setSlidesPerView] = useState(1); // Default to 1
+
+  useEffect(() => {
+    // Update slidesPerView based on screen width
+    const updateSlidesPerView = () => {
+      setSlidesPerView(window.innerWidth <= 768 ? 1 : 3);
+    };
+
+    updateSlidesPerView(); // Set initial value
+    window.addEventListener("resize", updateSlidesPerView); // Update on resize
+
+    return () => window.removeEventListener("resize", updateSlidesPerView); // Cleanup
+  }, []);
 
 
 
@@ -96,8 +110,7 @@ const Hero = () => {
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={30}
-              slidesPerView={window.innerWidth <= 768 ? 1 : 3}
-
+              slidesPerView={slidesPerView}
               autoplay={{ delay: 3000 }}
               loop={true}
               className="w-full"
