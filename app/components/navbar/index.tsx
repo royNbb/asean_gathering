@@ -36,7 +36,7 @@ const Navbar = () => {
         {/* Sign Up Button */}
         <div className="hidden md:block">
           <Link
-            href=""
+            href="https://docs.google.com/forms/d/e/1FAIpQLSea2BmtfnynStiuGv9KVEMxDE8y7ZbcIjtreo6VcsWVL1YEOQ/viewform?usp=sf_link"
             className="bg-amber-100 font-semibold text-red-950 px-6 py-2 rounded-lg hover:bg-amber-400 transition duration-200 ease-in-out shadow-md"
           >
             Get Tickets
@@ -101,7 +101,7 @@ const Navbar = () => {
 
             {/* Sign Up Button */}
             <div className="mt-4">
-              <Link href="">
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLSea2BmtfnynStiuGv9KVEMxDE8y7ZbcIjtreo6VcsWVL1YEOQ/viewform?usp=sf_link">
                 <button className="w-full bg-amber-100 text-bold text-red-950 font-semibold py-2 px-6 rounded-lg hover:bg-amber-400 transition duration-200 ease-in-out shadow-md">
                   Get Tickets
                 </button>
