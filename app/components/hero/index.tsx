@@ -7,78 +7,68 @@ const Hero = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const items: string[] = ['Indonesia.png', 'Malaysia.png', 'Philippines.png', 'Vietnam.png', 'Singapore.png', 'Thailand.png'];
 
-  // Function to update the carousel translation based on the current index and screen width
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const checkIfMobile = () => {
+        setIsMobile(window.innerWidth <= 768); // Your mobile breakpoint
+      };
+
+      checkIfMobile(); // Initial check on mount
+    }
+  }, []); // Empty dependency array ensures this only runs once on mount
+
   const updateCarousel = (index: number) => {
     if (carouselRef.current) {
-      const isMobile = window.innerWidth <= 768; // Mobile width threshold
-      const itemWidth = isMobile ? carouselRef.current.offsetWidth : carouselRef.current.offsetWidth / 3; // 1 item for mobile, 3 for larger screens
+      const itemWidth = isMobile ? carouselRef.current.offsetWidth : carouselRef.current.offsetWidth / 3;
       carouselRef.current.style.transform = `translateX(-${index * itemWidth}px)`;
     }
   };
 
+
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000); // Auto-scroll every 3 seconds
-  
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, []); // Empty dependency array, only runs once on mount
-  
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => {
-      // Check screen size to decide if we are on mobile or desktop
-      const isMobile = window.innerWidth <= 768;
-      let nextIndex = prevIndex + 1 
+    }, 3000); 
 
-      // If it's at the last item (duplicate first), jump to the first original item
-      if ((nextIndex === items.length - 2 && !isMobile) || (isMobile && nextIndex == items.length) ) {
-        nextIndex = 0; 
-        setTimeout(() => {
-          updateCarousel(nextIndex);
-        }, 500); // Small delay to let the transition complete before resetting
-      } 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      updateCarousel(currentIndex);
+    };
 
-      updateCarousel(nextIndex);
-      return nextIndex;
-    });
-  };
-
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => {
-      // Check screen size to decide if we are on mobile or desktop
-      const isMobile = window.innerWidth <= 768;
-      let nextIndex = prevIndex - 1 
-
-      // If it's at the last item (duplicate first), jump to the first original item
-      if (nextIndex === -1 && !isMobile) {
-        nextIndex = 3; 
-      } 
-      if (nextIndex === -1 && isMobile){
-        nextIndex = 5; 
-      }
-      setTimeout(() => {
-        updateCarousel(nextIndex);
-      }, 500); // Small delay to let the transition complete before resetting
-
-
-      updateCarousel(nextIndex);
-      return nextIndex;
-    });
-  };
-
-  useEffect(() => {
-    // Initial setup to update the carousel on component mount
-    updateCarousel(currentIndex);
-
-    // Resize listener to adjust carousel layout on screen size change
-    const handleResize = () => updateCarousel(currentIndex);
     window.addEventListener('resize', handleResize);
 
-    // Cleanup listener on component unmount
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, [currentIndex]);
 
+  const getNextIndex = (increment: boolean) => {
+    let nextIndex = increment ? currentIndex + 1 : currentIndex - 1;
+
+    if (nextIndex === items.length) {
+      nextIndex = isMobile ? 0 : 3;
+    }
+    if (nextIndex === -1) {
+      nextIndex = isMobile ? items.length - 1 : 3;
+    }
+    
+    return nextIndex;
+  };
+
+  const nextSlide = () => {
+    const nextIndex = getNextIndex(true);
+    setCurrentIndex(nextIndex);
+    updateCarousel(nextIndex);
+  };
+
+  const prevSlide = () => {
+    const prevIndex = getNextIndex(false);
+    setCurrentIndex(prevIndex);
+    updateCarousel(prevIndex);
+  };
   return (
     <section id="home" className="relative bg-gradient-to-b from-amber-800 to-red-900 text-amber-50 shadow-xl">
       <div className="bg-gradient-to-b from-[#101212] to-[#08201D] relative">
