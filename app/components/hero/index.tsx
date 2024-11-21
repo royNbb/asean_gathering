@@ -262,7 +262,7 @@ const Hero = () => {
                   />
                   <div className="p-4">
                     <h3 className="text-xl font-semibold text-amber-200">Tari Saman Performance</h3>
-                    <p className="text-white mt-2">Witness the mesmerizing synchronization of Indonesia's traditional dance.</p>
+                    <p className="text-white mt-2">Witness the mesmerizing synchronization of Indonesia&#39;s traditional dance.</p>
                   </div>
                 </div>
 
