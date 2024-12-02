@@ -43,7 +43,10 @@ const Hero = () => {
             backgroundPosition: "center",
           }}>
 
-          <div className="text-center py-10 bg-gradient-to-t from-white/0 via-red-900/60 to-black/ text-amber-50 px-2">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black"></div>
+
+          <div className="text-center pb-10 pt-5 text-amber-50 px-2 relative z-20">
             <h1 className="text-4xl text-white font-extrabold sm:text-5xl shadow-white]">
               ASEAN Students in Spain
             </h1>
@@ -51,8 +54,6 @@ const Hero = () => {
               Bringing Southeast Asian students together to celebrate our vibrant cultures, foster unity, and build lasting connections.
             </p>
           </div>
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black"></div>
           {/* Headline */}
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
             <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:gap-12 lg:px-50">
@@ -70,7 +71,7 @@ const Hero = () => {
                 <div className="flex justify-center">
                   <img
                     className="lg:mx-0 lg:w-96 w-64 sm:w-80"
-                    src="indonesia-title.png"
+                    src="indonesia_title.png"
                     alt="Indonesia Title"
                   />
                 </div>
