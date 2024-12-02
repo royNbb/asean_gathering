@@ -34,14 +34,23 @@ const Hero = () => {
 
 
   return (
-    <section id="home" className="relative bg-gradient-to-b from-amber-800 to-red-900 text-amber-50 shadow-xl">
+    <section id="home" className="relative bg-gradient-to-b from-amber-800 to-red-900 text-amber-50">
       <div className="bg-gradient-to-b from-[#101212] to-[#08201D] relative">
-        <section className="relative pt-12 pb-10 sm:pt-0 sm:pb-8 lg:py-20 "
+        <section className="relative pb-10 sm:pt-0 sm:pb-8 "
           style={{
             backgroundImage: "url('/batik.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}>
+
+          <div className="text-center py-10 bg-gradient-to-t from-white/0 via-red-900/60 to-black/ text-amber-50 px-2">
+            <h1 className="text-4xl text-white font-extrabold sm:text-5xl shadow-white]">
+              ASEAN Students in Spain
+            </h1>
+            <p className="mt-4 text-lg sm:text-xl text-amber-200 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+              Bringing Southeast Asian students together to celebrate our vibrant cultures, foster unity, and build lasting connections.
+            </p>
+          </div>
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black"></div>
           {/* Headline */}
@@ -66,8 +75,11 @@ const Hero = () => {
                   />
                 </div>
                 {/* Date and Place */}
+                <p className="text-lg text-center font-semibold text-yellow-200 sm:text-l lg:text-xl">
+                  Saturday, December 7th 2024
+                </p>
                 <p className="mb-2 text-lg text-center font-semibold text-yellow-100 sm:text-l lg:text-xl">
-                  Saturday, December 7th, 2024 • Madrid
+                  Galileo Cultural Center, Madrid
                 </p>
                 <p className="text-center text-base text-white sm:text-xl mb-2">
                   Join us for a night of traditional arts, music, and unforgettable connections.
@@ -111,7 +123,7 @@ const Hero = () => {
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={30}
               slidesPerView={slidesPerView}
-              autoplay={{ delay: 3000 }}
+              autoplay={{ delay: 1500 }}
               loop={true}
               className="w-full"
             >
@@ -147,7 +159,7 @@ const Hero = () => {
               </h2>
               <p className="mt-6 text-lg text-amber-100 max-w-4xl mx-auto">
                 To create a vibrant ASEAN student community in Spain by uniting students through culture, art, and connection. 
-                <span className="font-semibold text-amber-200">The Indonesia for ASEAN Students Network Gathering </span> 
+                The <span className="font-semibold text-amber-200">Indonesia Calling for ASEAN Students </span> network gathering 
                 will celebrate the rich diversity of Southeast Asian traditions with captivating performances and meaningful 
                 social interactions. Together, we aim to strengthen ties and build a thriving network for future collaborations.
               </p>
@@ -165,7 +177,7 @@ const Hero = () => {
             <div className="relative">
               <div className="flex overflow-x-auto space-x-6 pb-4">
                 {/* Activity Box 1 */}
-                <div className="flex-shrink-0 w-64 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
+                <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
                     src="/networking.jpg"
@@ -178,7 +190,7 @@ const Hero = () => {
                 </div>
 
                 {/* Activity Box 2 */}
-                <div className="flex-shrink-0 w-64 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
+                <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
                     src="/orchestra.jpg"
@@ -191,7 +203,7 @@ const Hero = () => {
                 </div>
 
                 {/* Activity Box 3 */}
-                <div className="flex-shrink-0 w-64 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
+                <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
                     src="/saman.png"
@@ -204,7 +216,7 @@ const Hero = () => {
                 </div>
 
                 {/* Activity Box 4 */}
-                <div className="flex-shrink-0 w-64 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
+                <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
                     src="/snack.jpg"
@@ -217,7 +229,7 @@ const Hero = () => {
                 </div>
 
                 {/* Activity Box 5 */}
-                <div className="flex-shrink-0 w-64 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
+                <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
                     src="/fashion.jpg"
@@ -230,19 +242,6 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Carousel Controls (optional) */}
-              <button
-                className="absolute top-1/2 left-0 transform -translate-y-1/2 px-4 py-2 bg-white/20 rounded-full hover:bg-white/30 text-white"
-                onClick={() => { /* Add slide prev functionality */ }}
-              >
-                &larr;
-              </button>
-              <button
-                className="absolute top-1/2 right-0 transform -translate-y-1/2 px-4 py-2 bg-white/20 rounded-full hover:bg-white/30 text-white"
-                onClick={() => { /* Add slide next functionality */ }}
-              >
-                &rarr;
-              </button>
             </div>
           </div>
         </section>
@@ -268,11 +267,12 @@ const Hero = () => {
               <div className="space-y-10">
                 {[
                   { time: "15:45", title: "Registration", subtitle: "Registro" },
-                  { time: "16:00", title: "Networking Session", subtitle: "Sesión de networking" },
-                  { time: "18:00", title: "Mini Orchestra - ASEAN Song, Let Us Move Ahead", subtitle: "Mini orquesta - ASEAN Song, Let Us Move Ahead" },
-                  { time: "18:20", title: "Tari Saman - Indonesian Traditional Group Dance", subtitle: "Tari Saman - Danza grupal tradicional de Indonesia" },
-                  { time: "18:30", title: "Break - With Indonesian Traditional Snack", subtitle: "Descanso - Con merienda tradicional de Indonesia" },
-                  { time: "18:45", title: "Fashion Show", subtitle: "La demostración de moda" },
+                  { time: "16:15", title: "Opening Session", subtitle: "Sesión de apertura" },                
+                  { time: "16:25", title: "Mini Orchestra - ASEAN Song, Let Us Move Ahead", subtitle: "Mini orquesta - ASEAN Song, Let Us Move Ahead" },                
+                  { time: "16:55", title: "Break - With Indonesian Traditional Snack", subtitle: "Descanso - Con merienda tradicional de Indonesia" },
+                  { time: "17:15", title: "Networking Session", subtitle: "Sesión de networking" },                
+                  { time: "18:20", title: "Tari Saman - Indonesian Traditional Group Dance", subtitle: "Tari Saman - Danza grupal tradicional de Indonesia" },                  
+                  { time: "18:35", title: "Fashion Show", subtitle: "La demostración de moda" },
                   { time: "19:00", title: "Closing Ceremony", subtitle: "Ceremonia de Clausura" },
                 ].map((item, index) => (
                   <div

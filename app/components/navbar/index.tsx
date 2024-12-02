@@ -16,7 +16,7 @@ const Navbar = () => {
         {/* Logo and Title */}
         <div className="flex items-center space-x-3">
           <Link href="#home" className="text-2xl font-semibold text-amber-600 hover:text-amber-400 transition">
-            <img src="../../indonesia-title.png" alt="Logo" className="w-32 mt-1" />
+            <img src="../../logo_asean.png" alt="Logo" className="w-24 my-1" />
           </Link>
         </div>
 
