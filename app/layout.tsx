@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ASEAN Gathering",
-  description: "Indonesia calling for ASEAN students in Spain",
+  title: "ASEAN Students in Spain",
+  description: "",
 };
 
 export default function RootLayout({

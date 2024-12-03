@@ -7,8 +7,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
           {/* Column 1: Logo and Title */}
           <div className="flex flex-col items-start space-y-6">
-            <img src="../../logo.png" alt="Logo" className="w-16 h-16 mb-4" />
-            <h3 className="text-4xl font-semibold text-amber-200 tracking-wide">ASEAN Gathering</h3>
+            <div className="flex justify-center">
+              <img src="../../logo_asean.png" alt="Logo" className="w-32 h-auto mb-2" />
+            </div>
+            <h3 className="text-4xl font-semibold text-amber-200 tracking-wide">ASEAN Students in Spain</h3>
             <p className="text-lg text-gray-300 max-w-xs leading-relaxed">
               Connecting cultures, empowering communities, and celebrating ASEAN together.
             </p>
@@ -55,7 +57,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-200 opacity-70">
-            © 2024 ASEAN Gathering. All rights reserved.
+            © 2024 ASEAN Students in Spain. All rights reserved.
           </p>
         </div>
       </div>

@@ -11,11 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        customDark: '#602014', // Your color code
+        customDark: "#602014", // Your color code
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/aspect-ratio"), // Add this line
+  ],
 } satisfies Config;
-
-
