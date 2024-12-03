@@ -17,6 +17,21 @@ const Hero = () => {
     "Singapore.png",
     "Thailand.png",
   ];
+  const testimonials = [
+    {
+      image: "/testi-2.png",
+      text: "This ASEAN gathering is an amazing opportunity to connect and build stronger ties across ASEAN students in Spain. Thanks to social media, we can bond even further—breaking borders, sharing moments, and beyond. So, save the date and don't miss the event!",
+      name: "Alyssa (Sasa) Kusnoto",
+      title: "Social Media Coordinator",
+    },
+    {
+      image: "/testi-1.png",
+      text: "Indonesia's rich cultural diversity has always fascinated me. Wearing traditional attire for the fashion show allowed me to connect with these cultures deeply. Meeting fellow ASEAN volunteers further enriched my appreciation of our shared backgrounds.",
+      name: "Megan Chan",
+      title: "Model, UC3M Exchange Student",
+    },
+  ];
+  
   const [slidesPerView, setSlidesPerView] = useState(1); // Default to 1
 
   useEffect(() => {
@@ -329,6 +344,51 @@ const Hero = () => {
             </div>
           </div>
         </section>
+
+        <section className="relative py-5 bg-amber-50 lg:pt-20">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:pb-20">
+          <h2 className="text-2xl font-bold text-amber-800 sm:text-3xl text-center mb-6">
+            What Our Members Say
+          </h2>
+
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            autoplay={{ delay: 5000 }}
+            loop={true}
+            className="w-full"
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col lg:flex-row items-center lg:items-start bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg px-6 py-8 max-w-xl mx-auto drop-shadow-[0_0_30px_rgba(250,211,132,0.8)]">
+                  {/* Image */}
+                  <div className="w-32 h-32 lg:w-48 lg:h-48 mb-6 lg:mb-0 lg:mr-8 flex-shrink-0">
+                    <img
+                      src={testimonial.image}
+                      alt={`${testimonial.name}'s testimonial`}
+                      className="w-full h-full rounded-full object-cover shadow-lg"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="text-center lg:text-left">
+                    <p className="text-white text-lg italic mb-4">
+                      "{testimonial.text}"
+                    </p>
+                    <h3 className="text-amber-200 font-semibold text-lg">
+                      {testimonial.name}
+                    </h3>
+                    <h4 className="text-amber-100 text-sm">{testimonial.title}</h4>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+
       </div>
     </section>
   );
