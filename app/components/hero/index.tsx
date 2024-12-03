@@ -221,7 +221,7 @@ const Hero = () => {
                 <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
-                    src="/networking.jpg"
+                    src="/networking.png"
                     alt="Activity 1"
                   />
                   <div className="p-4">
@@ -234,7 +234,7 @@ const Hero = () => {
                 <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
-                    src="/orchestra.jpg"
+                    src="/orchestra.png"
                     alt="Activity 2"
                   />
                   <div className="p-4">
@@ -247,7 +247,7 @@ const Hero = () => {
                 <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
-                    src="/saman.png"
+                    src="/saman.jpg"
                     alt="Activity 3"
                   />
                   <div className="p-4">
@@ -260,7 +260,7 @@ const Hero = () => {
                 <div className="flex-shrink-0 w-64 md:w-80 lg:w-128 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 rounded-lg shadow-lg overflow-hidden">
                   <img
                     className="w-full h-48 object-cover"
-                    src="/snack.jpg"
+                    src="/snack.png"
                     alt="Activity 4"
                   />
                   <div className="p-4">
