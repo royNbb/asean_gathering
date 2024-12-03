@@ -46,19 +46,20 @@ const Hero = () => {
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black"></div>
 
-          <div className="text-center pb-10 pt-5 text-amber-50 px-2 relative z-20">
-            <h1 className="text-4xl text-white font-extrabold sm:text-5xl shadow-white]">
+          <div className="text-center pb-10 pt-5 sm:pt-10 text-amber-50 px-2 relative z-20">
+            <h1 className="text-2xl text-white font-extrabold sm:text-5xl shadow-white]">
               ASEAN Students in Spain
             </h1>
-            <p className="mt-4 text-lg sm:text-xl text-amber-200 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
-              Bringing Southeast Asian students together to celebrate our vibrant cultures, foster unity, and build lasting connections.
+            <p className="mt-2 sm:mt-4 text-md sm:text-xl text-amber-200 font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+              Proudly presents our first event,
+              uniting Southeast Asian students to celebrate the spirit of community.           
             </p>
           </div>
           {/* Headline */}
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
             <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:gap-12 lg:px-50">
               {/* Right: Logo */}
-              <div className="flex items-center justify-center lg:mt-0 lg:,x-12">
+              <div className="flex items-center justify-center lg:mt-5 lg:,x-12">
                 <img
                   className="w-36 sm:w-44 lg:w-80 drop-shadow-[0_0_30px_rgba(250,211,132,0.6)]"
                   src="logo.png"
@@ -82,13 +83,13 @@ const Hero = () => {
                 <p className="mb-2 text-lg text-center font-semibold text-yellow-100 sm:text-l lg:text-xl">
                   Galileo Cultural Center, Madrid
                 </p>
-                <p className="text-center text-base text-white sm:text-xl mb-2">
+                <p className="text-center text-base text-white sm:text-xl lg:mb-2">
                   Join us for a night of traditional arts, music, and unforgettable connections.
                 </p>
                 <div className="flex justify-center items-center">
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSea2BmtfnynStiuGv9KVEMxDE8y7ZbcIjtreo6VcsWVL1YEOQ/viewform?usp=sf_link"
-                    className="inline-flex justify-center items-center px-6 py-3 font-semibold text-white bg-red-600 rounded-lg lg:mt-5 sm:mt-20 hover:bg-red-700"
+                    className="inline-flex justify-center items-center px-6 py-3 font-semibold text-white bg-red-600 rounded-lg mt-5 md:mt-16 lg:mt-8 hover:bg-red-700"
                   >
                     Get Tickets
                     <svg
@@ -114,9 +115,9 @@ const Hero = () => {
         </section>
 
         {/* Countries Carousel */}
-        <section className="relative py-5 bg-black">
+        <section className="relative py-5 bg-black lg:pt-24">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-white sm:text-3xl text-center mb-6">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl text-center mb-2">
               Calling All ASEAN Students in Spain
             </h2>
 
@@ -144,29 +145,53 @@ const Hero = () => {
           </div>
         </section>
 
-        <section id="vision" className="relative py-20"
+        <section
+          id="vision"
+          className="relative py-20"
           style={{
             backgroundImage: "url('/awan.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}>
+          }}
+        >
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black z-0"></div>
 
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-10">
+            {/* Text Content */}
             <div className="text-center">
               <h2 className="text-3xl font-bold text-amber-200 sm:text-4xl shadow-lg">
                 The Vision
               </h2>
               <p className="mt-6 text-lg text-amber-100 max-w-4xl mx-auto">
-                To create a vibrant ASEAN student community in Spain by uniting students through culture, art, and connection. 
-                The <span className="font-semibold text-amber-200">Indonesia Calling for ASEAN Students </span> network gathering 
-                will celebrate the rich diversity of Southeast Asian traditions with captivating performances and meaningful 
-                social interactions. Together, we aim to strengthen ties and build a thriving network for future collaborations.
+                To create a vibrant ASEAN student community in Spain by uniting students through culture, art, and connection. The{" "}
+                <span className="font-semibold text-amber-200">
+                  Indonesia Calling for ASEAN Students
+                </span>{" "}
+                network gathering will celebrate the rich diversity of Southeast Asian traditions with captivating performances and meaningful social interactions. Together, we aim to strengthen ties and build a thriving network for future collaborations.
               </p>
             </div>
           </div>
+
+          {/* Responsive Video */}
+          <div className="relative z-20 px-4 sm:px-6 lg:px-8 flex justify-center mt-10">
+            <div className="w-56 h-96 ">
+              <iframe
+                title="YouTube video player"
+                src="https://www.youtube.com/embed/dnYyupyYf8I"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                className="w-full h-full rounded-lg shadow-lg"
+                style={{
+                  maxHeight: "800px",
+                  height: "100%",
+                }}
+              ></iframe>
+            </div>
+          </div>   
+
         </section>
+        
 
         <section id="activities" className="relative py-10 pt-20 bg-gradient-to-b from-black to-customDark animate-on-scroll">
           <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
