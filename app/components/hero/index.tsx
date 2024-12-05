@@ -310,11 +310,12 @@ const Hero = () => {
                   { time: "15:45", title: "Registration", subtitle: "Registro" },
                   { time: "16:15", title: "Opening Session", subtitle: "Sesión de apertura" },                
                   { time: "16:25", title: "Mini Orchestra - ASEAN Song, Let Us Move Ahead", subtitle: "Mini orquesta - ASEAN Song, Let Us Move Ahead" },                
-                  { time: "16:55", title: "Break - With Indonesian Traditional Snack", subtitle: "Descanso - Con merienda tradicional de Indonesia" },
+                  { time: "16:55", title: "Quick Break for Networking Session", subtitle: "Pausa Rápida para Sesión de Networking" },
                   { time: "17:15", title: "Networking Session", subtitle: "Sesión de networking" },                
                   { time: "18:20", title: "Tari Saman - Indonesian Traditional Group Dance", subtitle: "Tari Saman - Danza grupal tradicional de Indonesia" },                  
                   { time: "18:35", title: "Fashion Show", subtitle: "La demostración de moda" },
                   { time: "19:00", title: "Closing Ceremony", subtitle: "Ceremonia de Clausura" },
+                  { time: "End", title: "Snack and Socializing in Maracuyá Cafe", subtitle: "Refrigerio y Socialización en el Café Maracuyá" },
                 ].map((item, index) => (
                   <div
                     key={index}
